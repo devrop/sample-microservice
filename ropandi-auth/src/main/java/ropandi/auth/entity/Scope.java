@@ -15,7 +15,7 @@ import lombok.Setter;
 
 
 @Builder
-@Table(name="Scope")
+@Table(name="mst_scope")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

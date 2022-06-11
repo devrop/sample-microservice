@@ -21,7 +21,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.RC1</spring-cloud.version>
-		<hsqldb.version>2.4.0</hsqldb.version>
+		<!-- <hsqldb.version>2.4.0</hsqldb.version> -->
+		<sql-server.version>4.0</sql-server.version>
 	</properties>
 
 	<dependencies>
@@ -79,11 +80,16 @@
 		</dependency>
 		
 		
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>${hsqldb.version}</version>
 			<scope>runtime</scope>
+		</dependency> -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>${sql-server.version}</version>
 		</dependency>
 	</dependencies>
 

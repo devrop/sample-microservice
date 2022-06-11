@@ -18,20 +18,13 @@ import ropandi.auth.service.ICredentialService;
 @RestController
 @RequestMapping("/register")
 public class RegisterController {
-    @Autowired
-	private InMemoryUserDetailsManager inMemoryUserDetailsManager;
-	
-	
+
 	@Autowired
 	private ICredentialService credentialService;
 	 @PostMapping
 	  public ResponseEntity<CredentialRequest> newCredential(@RequestBody CredentialRequest credentialRequest){
 	    return ResponseEntity.ok(this.credentialService.newCredential(credentialRequest));
 	  }
-	 @GetMapping("mem")
-	 private String getAllData(@PathVariable("id") String id){
-		 System.out.println("CALL ");
-		 return inMemoryUserDetailsManager.loadUserByUsername(id).getUsername();
-	 }
+	
 }
 

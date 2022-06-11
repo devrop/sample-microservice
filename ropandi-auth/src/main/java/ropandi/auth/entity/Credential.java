@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Builder
-@Table(name="credential")
+@Table(name="mst_credential")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,6 +31,11 @@ public class Credential {
   private String email;
 
   private String password;
+  
+  private Long created_at;
+  private String created_by;
+  private Long updated_at;
+  private String updated_by;
 
 
 
