@@ -16,7 +16,7 @@ security:
     enabled: false
   oauth2:
     resource:
-      userInfoUri: http://localhost:7777/credential
+      userInfoUri: http://localhost:7777/validateUser
 oauth:
    privateKey: T439jLWJ6MpGa1OCAEoeMUF3B8dPKgOsr5DN8lUqthE8ltkoGWqndqbLogEg4dfMf0uRjtsDH6Ue3R0K 
 custom:
