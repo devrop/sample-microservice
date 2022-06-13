@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:7777/validateUser
+      defaultZone: http://localhost:8761/eureka/
   instance:
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
