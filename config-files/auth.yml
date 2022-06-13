@@ -4,23 +4,13 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:7777/validateUser
   instance:
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-spring:
-  datasource:
-   driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver    
-   url: jdbc:sqlserver://localhost;databaseName=AUTH
-   username: sa
-   password: ropandi123
-  jpa:
-   hibernate.ddl-auto: none
-   database-platform: org.hibernate.dialect.SQLServer2012Dialect 
 
-    
 security:
   basic:
     enabled: false
@@ -28,6 +18,9 @@ security:
     resource:
       userInfoUri: http://localhost:7777/credential
 oauth:
-   privateKey: T439jLWJ6MpGa1OCAEoeMUF3B8dPKgOsr5DN8lUqthE8ltkoGWqndqbLogEg4dfMf0uRjtsDH6Ue3R0K    
+   privateKey: T439jLWJ6MpGa1OCAEoeMUF3B8dPKgOsr5DN8lUqthE8ltkoGWqndqbLogEg4dfMf0uRjtsDH6Ue3R0K 
+custom:
+  url:
+   user: http://localhost:5000
     
   
