@@ -46,6 +46,10 @@ zuul:
       path: /api/fillings/**
       sensitiveHeaders: 
       serviceId: fillings
+    auth:
+      path: /api/auth/**
+      sensitiveHeaders: 
+      serviceId: auth
   host:
     connectTimeoutMillis: 3000
     socketTimeoutMillis: 3000
