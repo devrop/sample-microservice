@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("get")
 public class TestController {
 
-	@Autowired
-	private InMemoryUserDetailsManager inMemoryUserDetailsManager;
-	 @GetMapping("id/{id}")
-	 private String getAllData(@PathVariable("id") String id){
+	
+	 @GetMapping("a")
+	 public String getAllData(){
 		 System.out.println("CALLDDDD " );
-		 System.out.println("CALL " + inMemoryUserDetailsManager.loadUserByUsername(id).getUsername());
-		 return inMemoryUserDetailsManager.loadUserByUsername(id).getUsername();
+		 return "OK";
 	 }
 }

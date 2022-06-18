@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import ropandi.auth.entity.Credential;
+import ropandi.auth.entity.MstCredential;
 import ropandi.auth.model.CredentialData;
 import ropandi.auth.model.ScopeData;
 import ropandi.auth.repository.CredentialRepository;
@@ -26,14 +26,14 @@ public class CredentialsDetailsService implements UserDetailsService {
 	private ScopeRepository scopeRepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		System.out.println("data " + email);
-		final Credential credential = this.credentialRepository.findByEmail(email).get();
+		System.out.println("data " + id);
+		final MstCredential credential = this.credentialRepository.findById(id).get();
 		final Set<ScopeData> scopeData = this.scopeRepository
 				.findByClientId(credential.getId())
 				.stream().map(d-> {
-					return ScopeData.builder().id(d.getScopePK().getScopeId()).value(d.getValue()).build();
+					return ScopeData.builder().id(d.getMstScopePK().getScopeId()).value(d.getValue()).build();
 					}).collect(Collectors.toSet());
 				
 		

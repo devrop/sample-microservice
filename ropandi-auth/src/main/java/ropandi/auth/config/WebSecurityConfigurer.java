@@ -31,14 +31,14 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 	  @Autowired
 	  private PasswordEncoder passwordEncoder;
-	  @Autowired
+	/*  @Autowired
 	  private CredentialsDetailsService credentialUserDetails;
 	
 	 @Override
 	  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		 auth.userDetailsService(this.credentialUserDetails).passwordEncoder(this.passwordEncoder);
 
-	  }
+	  }*/
 
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception {
@@ -50,29 +50,17 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 	        .formLogin().permitAll();
 	  }
 	  
+	  @Autowired
+	  private PasswordEncoder passwordEncoder;
+	  
+	  
 	   @Bean
 	    public AuthenticationManager authenticationManagerBean()
 	        throws Exception {
 	        return super.authenticationManagerBean();
 	    }
 	
-	   @Bean
-	   public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
-		   return new InMemoryUserDetailsManager();
-	   }
-	   @Bean
-	    public FilterRegistrationBean corsFilter() {
-	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	        CorsConfiguration config = new CorsConfiguration();
-	        config.setAllowCredentials(true);
-	        config.addAllowedOrigin("*");
-	        config.addAllowedHeader("*");
-	        config.addAllowedMethod("*");
-	        source.registerCorsConfiguration("/**", config);
-	        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-	        bean.setOrder(0);
-	        return bean;
-	    }
-	   
+	  
+	  
 	   
 }

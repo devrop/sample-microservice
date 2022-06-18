@@ -52,10 +52,10 @@ public class OAuth2AuthServer extends AuthorizationServerConfigurerAdapter {
   public void configure(ClientDetailsServiceConfigurer clients)throws Exception {
 	  clients
         .inMemory()
-        .withClient("jGjsbIwLzOimHoUAEamIaMqtmb6FXo") // slot microservice
-        .secret("ClWi4JbmO8pJ5UnHGKfqKyIkTqf4zaZOQ6UcYgUYbDG6Xo3JK0")
-        .authorizedGrantTypes("authorization_code", "refresh_token", "implicit",
-            "client_credentials")
+        .withClient("client") // slot microservice
+        .secret("secret")
+        .authorizedGrantTypes("refresh_token",
+            "client_credentials").scopes("resource-server-read", "resource-server-write")
         .authorities("operator")
         .scopes("trust")
         .accessTokenValiditySeconds(ONE_DAY)

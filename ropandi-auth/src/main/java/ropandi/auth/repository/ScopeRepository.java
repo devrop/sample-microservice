@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import ropandi.auth.entity.Scope;
-import ropandi.auth.entity.ScopePK;
+import ropandi.auth.entity.MstScope;
+import ropandi.auth.entity.MstScopePK;
 @Repository
-public interface ScopeRepository  extends JpaRepository<Scope,ScopePK>{
+public interface ScopeRepository  extends JpaRepository<MstScope,MstScopePK>{
 
-	@Query("select s from Scope s where s.scopePK.clientId =:clientId")
-	List<Scope> findByClientId(@Param("clientId") String clientId);
+	@Query("select s from MstScope s where s.mstScopePK.clientId =:clientId")
+	List<MstScope> findByClientId(@Param("clientId") String clientId);
 }

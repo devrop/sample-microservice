@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ropandi.auth.entity.Credential;
-import ropandi.auth.entity.Scope;
-import ropandi.auth.entity.ScopePK;
+import ropandi.auth.entity.MstCredential;
+import ropandi.auth.entity.MstScope;
+import ropandi.auth.entity.MstScopePK;
 import ropandi.auth.model.CredentialRequest;
 import ropandi.auth.repository.CredentialRepository;
 import ropandi.auth.repository.ScopeRepository;
@@ -29,14 +29,20 @@ public class CredentialService implements ICredentialService {
 	@Override
 	public CredentialRequest newCredential(CredentialRequest credentialRequest) {
 		// TODO Auto-generated method stub
-    System.out.println("Masuk suni");
+		try{
+         System.out.println("Masuk suni");
         
-		final Credential credential = Credential.builder().id(credentialRequest.getId())
+		final MstCredential credential = MstCredential.builder().id(credentialRequest.getId())
 				.email(credentialRequest.getEmail()).name(credentialRequest.getName())
 				.password(this.passwordEncoder.encode(credentialRequest.getPassword())).build();
 		this.credentialRepository.save(credential);
-        this.scopeRepository.save(Scope.builder().scopePK(ScopePK.builder().clientId(credentialRequest.getId()).scopeId("operator").build()).value("Opeartor").build());
+		System.out.println(" end excute ");
+        this.scopeRepository.save(MstScope.builder().mstScopePK(MstScopePK.builder().clientId(credentialRequest.getId()).scopeId("operator").build()).value("Opeartor").build());
 		return credentialRequest;
+		}catch(Exception e){
+			System.out.println("error data");
+			return null;
+		}
 		
 	}
 

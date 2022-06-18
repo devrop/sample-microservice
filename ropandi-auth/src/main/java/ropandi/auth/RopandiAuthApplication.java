@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableZuulProxy
 @EnableEurekaClient
 @SpringBootApplication
+@EnableResourceServer
 public class RopandiAuthApplication {
 
 	public static void main(String[] args) {
