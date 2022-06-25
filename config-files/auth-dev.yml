@@ -1,0 +1,26 @@
+server:
+  port: 7777
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:7777/validateUser
+oauth:
+   privateKey: T439jLWJ6MpGa1OCAEoeMUF3B8dPKgOsr5DN8lUqthE8ltkoGWqndqbLogEg4dfMf0uRjtsDH6Ue3R0K 
+custom:
+  url:
+   user: http://localhost:5100
+    
+  
