@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
   instance:
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
@@ -16,11 +16,11 @@ security:
     enabled: false
   oauth2:
     resource:
-      userInfoUri: http://localhost:7777/validateUser
+      userInfoUri: http://auth:7777/validateUser
 oauth:
    privateKey: T439jLWJ6MpGa1OCAEoeMUF3B8dPKgOsr5DN8lUqthE8ltkoGWqndqbLogEg4dfMf0uRjtsDH6Ue3R0K 
 custom:
   url:
-   user: http://localhost:5100
+   user: http://user:5100
     
   
